@@ -88,7 +88,7 @@ void list_treasures(char *hunt_id) {
 
     Treasure treasure;
     printf("\nTreasures in hunt %s:\n", hunt_id);
-    printf("ID\tUser\t\tLongitude\tLatitude\tValue\tClue\n");
+    printf("ID\tUser \t\tLongitude\tLatitude\tValue\tClue\n");
     printf("-----------------------------------------------------------------\n");
 
     while (read(fd, &treasure, sizeof(Treasure)) == sizeof(Treasure)) {
@@ -96,7 +96,7 @@ void list_treasures(char *hunt_id) {
                treasure.ID, treasure.user_name,
                treasure.GPS_longitude, treasure.GPS_latitude,
                treasure.value, treasure.clue,
-               strlen(treasure.clue) > 30 ? "..." : "");
+               strlen(tre asure.clue) > 30 ? "..." : "");
     }
 
     close(fd);
@@ -119,7 +119,7 @@ void view_treasure(char *hunt_id, int id) {
         if (treasure.ID == id) {
             found = 1;
             printf("\nTreasure details (ID: %d):\n", id);
-            printf("User: %s\n", treasure.user_name);
+            printf(":User  %s\n", treasure.user_name);
             printf("GPS Coordinates: %.6f, %.6f\n", treasure.GPS_longitude, treasure.GPS_latitude);
             printf("Value: %d\n", treasure.value);
             printf("Clue: %s\n", treasure.clue);
@@ -222,7 +222,6 @@ void create_hunt_directory(char *hunt_id) {
         exit(EXIT_FAILURE);
     }
 
-    // Create log file if it doesn't exist
     char log_path[256];
     snprintf(log_path, sizeof(log_path), "%s/%s", hunt_path, LOG_FILE);
 
@@ -231,7 +230,7 @@ void create_hunt_directory(char *hunt_id) {
         perror("Error creating log file");
         exit(EXIT_FAILURE);
     }
-    close(fd);
+    close(fd );
 
     create_symlink(hunt_id);
 }
@@ -266,7 +265,6 @@ void create_symlink(char *hunt_id) {
     char log_path[256];
     snprintf(log_path, sizeof(log_path), "%s%s/%s", HUNT_DIR_PREFIX, hunt_id, LOG_FILE);
 
-    // Remove existing symlink if it exists
     unlink(symlink_path);
 
     if (symlink(log_path, symlink_path) == -1) {
