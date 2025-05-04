@@ -51,9 +51,6 @@ This launches an interface and a background process that communicates via signal
   └── logged_hunt           - log file for operations
 - hunt_<id>_log_link        - symbolic link to log file
 ```
-
-Possible improvements: input validation, user authentication, Windows compatibility via WSL, CLI UI enhancements.
-
 Author: Notimpresd (https://github.com/Notimpresd)
 
 License: MIT License
