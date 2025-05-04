@@ -20,7 +20,7 @@ This will create two executables: ./treasure_manager and ./treasure_hub
 Usage examples:
 
 To create a hunt:
-   ` ./treasure_manager create <hunt_id>`
+   `` ./treasure_manager create <hunt_id>``
 
 To add a treasure:
    ` ./treasure_manager add <hunt_id> "<name>" "<description>" <value>`
